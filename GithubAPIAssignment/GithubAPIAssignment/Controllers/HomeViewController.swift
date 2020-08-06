@@ -15,6 +15,11 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if Reachability.isConnectedToNetwork() {
+            print("Connected")
+        } else {
+            print("Not connected")
+        }
     }
 
 }
