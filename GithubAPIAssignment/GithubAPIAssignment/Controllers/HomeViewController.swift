@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  GithubAPIAssignment
 //
 //  Created by Swapnil  Magar on 06/08/20.
@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: BaseViewController {
+    
+    //MARK:- VC Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
 
-
 }
+
+//MARK:- Private
+
+private extension HomeViewController {
+    
+    
+}
+
 

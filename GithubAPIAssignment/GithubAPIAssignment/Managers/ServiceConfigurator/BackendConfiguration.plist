@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Development</key>
+	<dict>
+		<key>Host</key>
+		<string>https://api.github.com/</string>
+		<key>Timeout</key>
+		<string>180</string>
+	</dict>
+	<key>UAT</key>
+	<dict>
+		<key>Host</key>
+		<string>Provide UAT endpoint</string>
+		<key>Timeout</key>
+		<string>60</string>
+	</dict>
+	<key>Production</key>
+	<dict>
+		<key>Host</key>
+		<string>Provide Production endpoint</string>
+		<key>Timeout</key>
+		<string>30</string>
+	</dict>
+</dict>
+</plist>
