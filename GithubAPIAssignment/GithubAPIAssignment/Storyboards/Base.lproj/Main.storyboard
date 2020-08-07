@@ -37,30 +37,50 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zue-hq-Fk9">
-                                <rect key="frame" x="16" y="84" width="343" height="21"/>
+                                <rect key="frame" x="16" y="84" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvb-sU-36A">
-                                <rect key="frame" x="0.0" y="105" width="375" height="562"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Egd-bv-Nwe"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fAq-59-d3h"/>
-                                </connections>
-                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sXs-FY-Bgl">
+                                <rect key="frame" x="0.0" y="109.5" width="375" height="557.5"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvb-sU-36A">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="517.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Egd-bv-Nwe"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="fAq-59-d3h"/>
+                                        </connections>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wP-qv-3I5">
+                                        <rect key="frame" x="0.0" y="517.5" width="375" height="40"/>
+                                        <subviews>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8JV-Xo-Gyo">
+                                                <rect key="frame" x="177.5" y="10" width="20" height="20"/>
+                                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="A3y-Mc-3QQ"/>
+                                            <constraint firstItem="8JV-Xo-Gyo" firstAttribute="centerY" secondItem="5wP-qv-3I5" secondAttribute="centerY" id="kma-1m-kf1"/>
+                                            <constraint firstItem="8JV-Xo-Gyo" firstAttribute="centerX" secondItem="5wP-qv-3I5" secondAttribute="centerX" id="x6f-97-8p4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kQ2-Nm-eEG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0TQ-aj-q3k"/>
-                            <constraint firstItem="pvb-sU-36A" firstAttribute="top" secondItem="zue-hq-Fk9" secondAttribute="bottom" id="0Xd-df-pPy"/>
                             <constraint firstItem="zue-hq-Fk9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Euj-Id-ZOw"/>
                             <constraint firstItem="zue-hq-Fk9" firstAttribute="top" secondItem="iea-CK-baM" secondAttribute="bottom" id="Kaa-hn-vpd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pvb-sU-36A" secondAttribute="bottom" id="U0Z-6s-9LU"/>
-                            <constraint firstItem="pvb-sU-36A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UU5-zn-mWp"/>
+                            <constraint firstAttribute="bottom" secondItem="sXs-FY-Bgl" secondAttribute="bottom" id="RuJ-nH-wJB"/>
+                            <constraint firstItem="sXs-FY-Bgl" firstAttribute="top" secondItem="zue-hq-Fk9" secondAttribute="bottom" constant="5" id="VMb-AQ-TzT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kQ2-Nm-eEG" secondAttribute="bottom" id="VVK-4T-bFB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pvb-sU-36A" secondAttribute="trailing" id="XkT-VU-KQk"/>
+                            <constraint firstItem="sXs-FY-Bgl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZID-ps-coW"/>
+                            <constraint firstItem="sXs-FY-Bgl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZJy-hU-lIe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kQ2-Nm-eEG" secondAttribute="trailing" id="dKb-pG-Vrd"/>
                             <constraint firstItem="kQ2-Nm-eEG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nDZ-yA-jTi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zue-hq-Fk9" secondAttribute="trailing" constant="16" id="neo-qu-B4B"/>
@@ -74,8 +94,16 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="4eZ-NS-I0k">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="search" id="tZB-2a-h2u">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="searchBarButtonTapped:" destination="BYZ-38-t0r" id="N4Z-wo-QKo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="paginationLoader" destination="8JV-Xo-Gyo" id="K46-M5-iZY"/>
+                        <outlet property="paginationView" destination="5wP-qv-3I5" id="D2Z-gC-fXY"/>
                         <outlet property="showingLabel" destination="zue-hq-Fk9" id="I0g-zy-eYY"/>
                         <outlet property="sortByButton" destination="tLR-aK-e0r" id="0Ih-FB-OrJ"/>
                         <outlet property="tableView" destination="pvb-sU-36A" id="rjU-vg-Qmc"/>
@@ -104,4 +132,7 @@
             <point key="canvasLocation" x="-404" y="74"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search" width="18.5" height="18.5"/>
+    </resources>
 </document>

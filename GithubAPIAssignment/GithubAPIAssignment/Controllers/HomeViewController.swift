@@ -15,6 +15,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var sortByButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var showingLabel: UILabel!
+    @IBOutlet weak var paginationView: UIView!
+    @IBOutlet weak var paginationLoader: UIActivityIndicatorView!
     
     //MARK:- VC Life Cycle
 
@@ -22,6 +24,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
 
         initialConfiguration()
+        fetchGithubUsers()
     }
     
     //MARK:- BaseViewController
@@ -29,7 +32,7 @@ class HomeViewController: BaseViewController {
     override func isHideBackButton() -> Bool {
         return true
     }
-
+    
 }
 
 //MARK:- Private
@@ -40,15 +43,42 @@ private extension HomeViewController {
         self.title = .home
         applyStyle()
         registerCellNib()
+        hidePaginationLoader(true)
     }
     
     func applyStyle() {
         showingLabel.font = .system(AppConstants.FontSize.twelve)
+        showingLabel.textColor = .black136
+        showingLabel.text = "result(s)".precedingZeroShowing(10)
+        
+        sortByButton.setTitle(.sortBy, for: .normal)
+        sortByButton.titleLabel?.font = .system(AppConstants.FontSize.fourteen)
+        sortByButton.setTitleColor(.black136, for: .normal)
     }
     
     func registerCellNib() {
         let nib = UINib(nibName: UsersTableViewCell.className, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: UsersTableViewCell.className)
+    }
+    
+    func hidePaginationLoader(_ shouldHide: Bool) {
+        if shouldHide {
+            paginationLoader.stopAnimating()
+            paginationView.isHidden = true
+        } else {
+            paginationView.isHidden = false
+            paginationLoader.startAnimating()
+        }
+    }
+    
+}
+
+//MARK:- IBActions
+
+extension HomeViewController {
+    
+    @IBAction func searchBarButtonTapped(_ sender: UIBarButtonItem) {
+        
     }
     
 }
@@ -57,7 +87,10 @@ private extension HomeViewController {
 
 extension HomeViewController {
     
-    
+    func fetchGithubUsers() {
+        
+        
+    }
     
 }
 

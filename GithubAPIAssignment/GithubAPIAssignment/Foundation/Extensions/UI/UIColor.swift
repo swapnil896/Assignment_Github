@@ -22,6 +22,14 @@ extension UIColor {
         return color(withRed: 61, green: 60, blue: 60)
     }
     
+    class var pinkishGrey: UIColor {
+        return color(withRed: 204, green: 204, blue: 204)
+    }
+    
+    class var black136: UIColor {
+        return color(withRed: 136, green: 136, blue: 136)
+    }
+    
 }
 
 //MARK:- Private

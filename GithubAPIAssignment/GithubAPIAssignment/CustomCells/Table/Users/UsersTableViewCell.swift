@@ -39,6 +39,7 @@ private extension UsersTableViewCell {
         userNameLabel.font = .system(AppConstants.FontSize.fourteen)
         userScoreLabel.font = .system(AppConstants.FontSize.fourteen)
         viewDetailsButton.titleLabel?.font = .systemMedium(AppConstants.FontSize.twelve)
+        viewDetailsButton.setTitle(.viewDetails, for: .normal)
     }
     
 }

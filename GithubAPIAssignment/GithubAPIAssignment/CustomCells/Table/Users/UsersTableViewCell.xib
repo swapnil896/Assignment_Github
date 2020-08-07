@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uo-L9-0rM">
                         <rect key="frame" x="4" y="4" width="312" height="77"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-Qr-qsN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-Qr-qsN" customClass="RoundedImageView" customModule="GithubAPIAssignment" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8.5" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fb3-Qr-qsN" secondAttribute="height" id="xqL-x6-5yM"/>
@@ -57,6 +57,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="1JP-oU-qSe" firstAttribute="centerY" secondItem="0uo-L9-0rM" secondAttribute="centerY" id="K0p-vL-bN8"/>
+                            <constraint firstAttribute="height" constant="77" id="WYB-cl-xvn"/>
                             <constraint firstItem="vU8-Ik-Xbd" firstAttribute="leading" secondItem="1JP-oU-qSe" secondAttribute="trailing" constant="8" id="XaH-e5-M9b"/>
                             <constraint firstAttribute="trailing" secondItem="vU8-Ik-Xbd" secondAttribute="trailing" constant="8" id="a1G-6O-yUM"/>
                             <constraint firstItem="fb3-Qr-qsN" firstAttribute="leading" secondItem="0uo-L9-0rM" secondAttribute="leading" constant="8" id="paJ-r4-edb"/>
@@ -84,4 +85,7 @@
             <point key="canvasLocation" x="140.57971014492756" y="150.33482142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="userPlaceholder" width="126" height="125.5"/>
+    </resources>
 </document>
