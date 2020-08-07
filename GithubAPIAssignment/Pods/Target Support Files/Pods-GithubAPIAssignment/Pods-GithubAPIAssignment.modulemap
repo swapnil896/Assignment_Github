@@ -1,0 +1,6 @@
+framework module Pods_GithubAPIAssignment {
+  umbrella header "Pods-GithubAPIAssignment-umbrella.h"
+
+  export *
+  module * { export * }
+}
