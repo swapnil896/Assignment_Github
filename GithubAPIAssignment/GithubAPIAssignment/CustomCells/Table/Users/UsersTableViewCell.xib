@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="KGk-i7-Jjw" customClass="UsersTableViewCell" customModule="GithubAPIAssignment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uo-L9-0rM">
+                        <rect key="frame" x="4" y="4" width="312" height="77"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-Qr-qsN">
+                                <rect key="frame" x="8" y="8.5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fb3-Qr-qsN" secondAttribute="height" id="xqL-x6-5yM"/>
+                                    <constraint firstAttribute="width" constant="60" id="yOL-wG-o1Q"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1JP-oU-qSe">
+                                <rect key="frame" x="76" y="14" width="140" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9il-Yu-D4p">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-z1-cSG">
+                                        <rect key="frame" x="0.0" y="28.5" width="140" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vU8-Ik-Xbd">
+                                <rect key="frame" x="224" y="23.5" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="OdU-fi-2ZW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="viewDetailsButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yo8-Bx-VZ0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1JP-oU-qSe" firstAttribute="centerY" secondItem="0uo-L9-0rM" secondAttribute="centerY" id="K0p-vL-bN8"/>
+                            <constraint firstItem="vU8-Ik-Xbd" firstAttribute="leading" secondItem="1JP-oU-qSe" secondAttribute="trailing" constant="8" id="XaH-e5-M9b"/>
+                            <constraint firstAttribute="trailing" secondItem="vU8-Ik-Xbd" secondAttribute="trailing" constant="8" id="a1G-6O-yUM"/>
+                            <constraint firstItem="fb3-Qr-qsN" firstAttribute="leading" secondItem="0uo-L9-0rM" secondAttribute="leading" constant="8" id="paJ-r4-edb"/>
+                            <constraint firstItem="fb3-Qr-qsN" firstAttribute="centerY" secondItem="0uo-L9-0rM" secondAttribute="centerY" id="r6A-tc-xGI"/>
+                            <constraint firstItem="vU8-Ik-Xbd" firstAttribute="centerY" secondItem="0uo-L9-0rM" secondAttribute="centerY" id="sba-pI-dBa"/>
+                            <constraint firstItem="1JP-oU-qSe" firstAttribute="leading" secondItem="fb3-Qr-qsN" secondAttribute="trailing" constant="8" id="tmc-ew-9m9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0uo-L9-0rM" secondAttribute="trailing" constant="4" id="AWE-mo-Iyz"/>
+                    <constraint firstAttribute="bottom" secondItem="0uo-L9-0rM" secondAttribute="bottom" constant="4" id="Pac-Et-DVY"/>
+                    <constraint firstItem="0uo-L9-0rM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="auP-Hd-Xb2"/>
+                    <constraint firstItem="0uo-L9-0rM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="era-wS-77M"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="0uo-L9-0rM" id="I8y-x2-nSP"/>
+                <outlet property="userImageView" destination="fb3-Qr-qsN" id="Ejd-Ue-4yU"/>
+                <outlet property="userNameLabel" destination="9il-Yu-D4p" id="UwE-AO-EFe"/>
+                <outlet property="userScoreLabel" destination="HLn-z1-cSG" id="dTH-OH-PuI"/>
+                <outlet property="viewDetailsButton" destination="vU8-Ik-Xbd" id="pIZ-RI-FrE"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="150.33482142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

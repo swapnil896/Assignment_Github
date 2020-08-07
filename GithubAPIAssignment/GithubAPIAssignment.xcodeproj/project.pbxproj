@@ -27,6 +27,12 @@
 		55A7B71524DC100C00B30D8D /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B71424DC100C00B30D8D /* APIConstant.swift */; };
 		55A7B71824DC116400B30D8D /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B71724DC116400B30D8D /* Response.swift */; };
 		55A7B71A24DC118300B30D8D /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B71924DC118300B30D8D /* Networking.swift */; };
+		55A7B71C24DDC41200B30D8D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B71B24DDC41200B30D8D /* UIColor.swift */; };
+		55A7B71E24DDC4F800B30D8D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B71D24DDC4F800B30D8D /* String.swift */; };
+		55A7B72124DDDD4C00B30D8D /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B71F24DDDD4C00B30D8D /* UsersTableViewCell.swift */; };
+		55A7B72224DDDD4C00B30D8D /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A7B72024DDDD4C00B30D8D /* UsersTableViewCell.xib */; };
+		55A7B72724DDE18300B30D8D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B72624DDE18300B30D8D /* AppConstants.swift */; };
+		55A7B72924DDE23000B30D8D /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B72824DDE23000B30D8D /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +58,12 @@
 		55A7B71424DC100C00B30D8D /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		55A7B71724DC116400B30D8D /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		55A7B71924DC118300B30D8D /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		55A7B71B24DDC41200B30D8D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		55A7B71D24DDC4F800B30D8D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		55A7B71F24DDDD4C00B30D8D /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		55A7B72024DDDD4C00B30D8D /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
+		55A7B72624DDE18300B30D8D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		55A7B72824DDE23000B30D8D /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,7 @@
 				55A7B71024DC0F5C00B30D8D /* Models */,
 				55A7B70824DC096100B30D8D /* Utils.swift */,
 				55A7B71624DC101000B30D8D /* Global */,
+				55A7B72524DDDD7300B30D8D /* CustomCells */,
 			);
 			path = GithubAPIAssignment;
 			sourceTree = "<group>";
@@ -154,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				55A171FE24DBEE3B00B04DC8 /* UIStoryboard.swift */,
+				55A7B71B24DDC41200B30D8D /* UIColor.swift */,
+				55A7B72824DDE23000B30D8D /* UIFont.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -170,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				55A1720424DBEF4800B04DC8 /* NSObject.swift */,
+				55A7B71D24DDC4F800B30D8D /* String.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -217,8 +233,34 @@
 			isa = PBXGroup;
 			children = (
 				55A7B71424DC100C00B30D8D /* APIConstant.swift */,
+				55A7B72624DDE18300B30D8D /* AppConstants.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		55A7B72324DDDD5E00B30D8D /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				55A7B72424DDDD6A00B30D8D /* Users */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		55A7B72424DDDD6A00B30D8D /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				55A7B71F24DDDD4C00B30D8D /* UsersTableViewCell.swift */,
+				55A7B72024DDDD4C00B30D8D /* UsersTableViewCell.xib */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		55A7B72524DDDD7300B30D8D /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				55A7B72324DDDD5E00B30D8D /* Table */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +324,7 @@
 				55A7B6FF24DBF15D00B30D8D /* BackendConfiguration.plist in Resources */,
 				550BA3BE24DBE67B00C0E93E /* LaunchScreen.storyboard in Resources */,
 				550BA3BB24DBE67B00C0E93E /* Assets.xcassets in Resources */,
+				55A7B72224DDDD4C00B30D8D /* UsersTableViewCell.xib in Resources */,
 				550BA3B924DBE67700C0E93E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,19 +339,24 @@
 				55A7B70324DBF45A00B30D8D /* ConfigReader.swift in Sources */,
 				55A7B70F24DC0EEE00B30D8D /* Users.swift in Sources */,
 				55A7B71224DC0F8100B30D8D /* UsersAPI.swift in Sources */,
+				55A7B72124DDDD4C00B30D8D /* UsersTableViewCell.swift in Sources */,
 				55A7B71A24DC118300B30D8D /* Networking.swift in Sources */,
 				550BA3B624DBE67700C0E93E /* BaseViewController.swift in Sources */,
 				55A7B71824DC116400B30D8D /* Response.swift in Sources */,
+				55A7B71C24DDC41200B30D8D /* UIColor.swift in Sources */,
 				55A7B70924DC096100B30D8D /* Utils.swift in Sources */,
 				55A7B70124DBF25400B30D8D /* BackendConfiguration.swift in Sources */,
 				55A171FF24DBEE3B00B04DC8 /* UIStoryboard.swift in Sources */,
 				55A7B70B24DC0A2600B30D8D /* SceneDelegate.swift in Sources */,
 				550BA3B224DBE67700C0E93E /* AppDelegate.swift in Sources */,
+				55A7B71E24DDC4F800B30D8D /* String.swift in Sources */,
 				55A1720524DBEF4800B04DC8 /* NSObject.swift in Sources */,
 				55A171FC24DBEDFE00B04DC8 /* HomeViewController.swift in Sources */,
 				55A7B70D24DC0AA100B30D8D /* Endpoint.swift in Sources */,
+				55A7B72924DDE23000B30D8D /* UIFont.swift in Sources */,
 				55A7B71524DC100C00B30D8D /* APIConstant.swift in Sources */,
 				55A7B70524DBF51D00B30D8D /* ConfigConstant.swift in Sources */,
+				55A7B72724DDE18300B30D8D /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        customiseNavigationBar()
         hideNavigationBar()
         hideBackButton()
     }
@@ -39,6 +40,14 @@ class BaseViewController: UIViewController {
 //MARK:- Private
 
 private extension BaseViewController {
+    
+    func customiseNavigationBar() {
+        navigationController?.navigationBar.backgroundColor = .navigationBar
+        navigationController?.navigationBar.barTintColor = .navigationBar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
     
     func hideNavigationBar() {
         navigationController?.navigationBar.isHidden = isHideNavigationBar()
