@@ -28,6 +28,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
 
         initialConfiguration()
+        //view.showHUD()
         fetchGithubUsers()
     }
     
@@ -44,7 +45,7 @@ class HomeViewController: BaseViewController {
 private extension HomeViewController {
     
     func initialConfiguration() {
-        self.title = .home
+        navigationItem.title = .home
         applyStyle()
         registerCellNib()
         hidePaginationLoader(true)
@@ -71,6 +72,14 @@ private extension HomeViewController {
         } else {
             paginationView.isHidden = false
             paginationLoader.startAnimating()
+        }
+    }
+    
+    func handleNetwork() {
+        if Reachability.isConnectedToNetwork() {
+            fetchGithubUsers()
+        } else {
+            UIApplication.shared.keyWindow?.showBanner()
         }
     }
     
@@ -107,17 +116,15 @@ extension HomeViewController {
 extension HomeViewController {
     
     func fetchGithubUsers() {
-        UserViewModel.shared.getGithubUsers(onSuccess: { [weak self] (users) in
-            DispatchQueue.main.async {
+        if Reachability.isConnectedToNetwork() {
+            UserViewModel.shared.getGithubUsers(onSuccess: { [weak self] (users) in
                 self?.handleUsersResponse(users)
+            }) { (error) in
+                ToastPopupManager.shared.show(message: error.localizedDescription)
             }
-        }) { (error) in
-            DispatchQueue.main.async {
-                
-            }
-            print(error.localizedDescription)
+        } else {
+            handleNetwork()
         }
-        
     }
     
     func handleUsersResponse(_ users: [User]?) {

@@ -13,6 +13,7 @@ struct Networking {
     func performNetworkTask<T: Codable>(endPoint: Endpoint, type: T.Type, completion: ((_ response: T?, _ error: Error?) -> Void)?) {
         guard let urlRequest = urlRequest(endPoint) else { return }
         let urlSession = URLSession.shared.dataTask(with: urlRequest) { (data, urlResponse, error) in
+            NetworkLog(urlRequest)
             if let error = error {
                 completion?(nil, error)
             }
@@ -24,6 +25,7 @@ struct Networking {
             guard let decoded = response.decode(type) else {
                 return
             }
+            NetworkLog(decoded)
             completion?(decoded, nil)
         }
         urlSession.resume()

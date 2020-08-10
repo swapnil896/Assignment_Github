@@ -10,7 +10,7 @@ import Foundation
 
 enum UsersAPI {
     case users
-    case searchUser(String)
+    case searchUser([String: Any])
 }
 
 extension UsersAPI: Endpoint {
@@ -23,8 +23,8 @@ extension UsersAPI: Endpoint {
         switch self {
         case .users:
             return APIConstant.Endpoint.users
-        case .searchUser(let searchParam):
-            return APIConstant.Endpoint.searchUsers + searchParam
+        case .searchUser:
+            return APIConstant.Endpoint.searchUsers
         }
     }
     
@@ -37,15 +37,19 @@ extension UsersAPI: Endpoint {
     
     var queryType: QueryType {
         switch self {
-        case .users, .searchUser:
+        case .users:
             return .httpBody
+        case .searchUser:
+            return .queryString
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .users, .searchUser:
+        case .users:
             return nil
+        case .searchUser(let params):
+            return params
         }
     }
     

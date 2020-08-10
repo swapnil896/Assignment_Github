@@ -20,10 +20,17 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var paginationView: UIView!
     @IBOutlet weak var paginationLoader: UIActivityIndicatorView!
     @IBOutlet weak var searchViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     //MARK:- Public Properties
     
     var searchedUsersList = [SearchedUser]()
+    
+    //MARK:- Private Properties
+    
+    private var isPaginationListLoading = false
+    private var isAllRecordsFetched = false
+    private var pageNumber = 1
     
     //MARK:- VC Life Cycle
 
@@ -34,6 +41,7 @@ class SearchViewController: BaseViewController {
         configureSearchBarView()
         registerCellNib()
         hideViews()
+        hidePaginationLoader()
         hideSearchBarView(withoutAnimation: true)
     }
     
@@ -68,6 +76,12 @@ private extension SearchViewController {
     
     func applyStyle() {
         searchBarView.backgroundColor = .navigationBar
+        showingLabel.font = .system(AppConstants.FontSize.twelve)
+        showingLabel.textColor = .black136
+        
+        sortByButton.setTitle(.sortBy, for: .normal)
+        sortByButton.titleLabel?.font = .system(AppConstants.FontSize.fourteen)
+        sortByButton.setTitleColor(.black136, for: .normal)
     }
     
     func registerCellNib() {
@@ -79,6 +93,14 @@ private extension SearchViewController {
         searchBarView.delegate = self
     }
     
+    func handleNetwork() {
+        if Reachability.isConnectedToNetwork() {
+            searchUser(true)
+        } else {
+            UIApplication.shared.keyWindow?.showBanner()
+        }
+    }
+    
     func currentUser(_ indexPath: IndexPath) -> SearchedUser? {
         if indexPath.row < searchedUsersList.count {
             return searchedUsersList[indexPath.row]
@@ -86,9 +108,44 @@ private extension SearchViewController {
         return nil
     }
     
+    func setupInitialPage() {
+        isPaginationListLoading = false
+        isAllRecordsFetched = false
+        pageNumber = 1
+    }
+    
     func hideViews() {
-        //validationView.isHidden = true
+        showingLabel.isHidden = true
         tableView.isHidden = true
+        sortByView.isHidden = true
+    }
+    
+    func showViews() {
+        showingLabel.isHidden = false
+        tableView.isHidden = false
+        sortByView.isHidden = false
+    }
+    
+    func showPaginationLoader() {
+        isPaginationListLoading = true
+        paginationView.isHidden = false
+        paginationLoader.isHidden = false
+        paginationLoader.startAnimating()
+    }
+    
+    func hidePaginationLoader() {
+        isPaginationListLoading = false
+        paginationLoader.stopAnimating()
+        paginationView.isHidden = true
+    }
+    
+    func showListLoader() {
+        loader.isHidden = false
+        loader.startAnimating()
+    }
+    
+    func hideListLoader() {
+        loader.stopAnimating()
     }
     
     func hideSearchBarView(withoutAnimation animate: Bool) {
@@ -113,26 +170,51 @@ private extension SearchViewController {
 
 extension SearchViewController {
     
-    func searchUser() {
-        UserViewModel.shared.searchUsers(searchBarView.searchBar.text! , onSuccess: { [weak self] (searchedUsers) in
-            DispatchQueue.main.async {
-                self?.handleSearchedUsersResponse(searchedUsers)
+    func searchUser(_ isFirstFetch: Bool) {
+        if Reachability.isConnectedToNetwork() {
+            if isFirstFetch {
+                showListLoader()
             }
-        }) { (error) in
-            DispatchQueue.main.async {
-                
+            UserViewModel.shared.searchUsers(searchUserParameters() , onSuccess: { [weak self] (searchedUsers) in
+                DispatchQueue.main.async {
+                    if isFirstFetch {
+                        self?.hideListLoader()
+                    } else {
+                        self?.hidePaginationLoader()
+                    }
+                    self?.handleSearchedUsersResponse(searchedUsers)
+                }
+            }) { [weak self] (error) in
+                self?.hidePaginationLoader()
+                ToastPopupManager.shared.show(message: error.localizedDescription)
             }
-            print(error.localizedDescription)
+        } else {
+            handleNetwork()
         }
-        
+    }
+    
+    func searchUserParameters() -> [String: Any] {
+        var params = [String: Any]()
+        params[SerializationKeys.searchQuery] = searchBarView.searchBar.text!
+        params[SerializationKeys.perPage] = APIConstant.Data.limit
+        params[SerializationKeys.page] = pageNumber
+        return params
     }
     
     func handleSearchedUsersResponse(_ users: SearchedUsers?) {
         if let users = users {
-            searchedUsersList = users.items
+            searchedUsersList.append(contentsOf: users.items)
             showingLabel.text = "result(s)".precedingZeroShowing(searchedUsersList.count)
+            
+            let totalRecordsOnServer = users.totalCount
+            if totalRecordsOnServer > searchedUsersList.count {
+                pageNumber = pageNumber + 1
+                isAllRecordsFetched = false
+            } else {
+                isAllRecordsFetched = true
+            }
         }
-        tableView.isHidden = false
+        showViews()
         tableView.reloadData()
     }
     
@@ -140,7 +222,7 @@ extension SearchViewController {
 
 //MARK:- UITableViewDataSource & UITableViewDelegate
 
-extension SearchViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchedUsersList.count
@@ -154,6 +236,26 @@ extension SearchViewController: UITableViewDataSource {
         return cell
     }
     
+    //For Pagination
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            guard let strongSelf = self else { return }
+            if tableView.visibleCells.contains(cell) {
+                // load more data
+                if !strongSelf.isPaginationListLoading {
+                    if indexPath.row == (strongSelf.searchedUsersList.count) - 1 {
+                        if !strongSelf.isAllRecordsFetched {
+                            if Reachability.isConnectedToNetwork() {
+                                strongSelf.showPaginationLoader()
+                                strongSelf.searchUser(false)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 // MARK: - SearchBarViewDelegate
@@ -163,6 +265,8 @@ extension SearchViewController: SearchBarViewDelegate {
     func searchBarView(_ searchBar: TopSearchBar, textDidChange text: String) { }
     
     func didSearchBarDidBeginEditing(_ searchBar: TopSearchBar) {
+        searchedUsersList.removeAll()
+        setupInitialPage()
         hideViews()
     }
     
@@ -172,7 +276,8 @@ extension SearchViewController: SearchBarViewDelegate {
     
     func didKeyboardSearchTapped(_ searchBar: TopSearchBar) {
         searchBar.resignFirstResponder()
-        searchUser()
+        searchedUsersList.removeAll()
+        searchUser(true)
     }
     
 }

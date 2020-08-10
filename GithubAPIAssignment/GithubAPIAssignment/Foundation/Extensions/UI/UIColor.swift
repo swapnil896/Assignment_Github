@@ -34,6 +34,10 @@ extension UIColor {
         return color(withRed: 255, green: 255, blue: 255, alpha: 0.8)
     }
     
+    class var watermelon: UIColor {
+        return color(withRed: 255, green: 59, blue: 94)
+    }
+    
 }
 
 //MARK:- Private

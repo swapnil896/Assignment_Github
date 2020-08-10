@@ -12,7 +12,11 @@ enum APIConstant {
     
     enum Endpoint {
         static let users = "users?since=1"
-        static let searchUsers = "search/users?q="
+        static let searchUsers = "search/users?"
+    }
+    
+    enum Data {
+        static let limit = 15
     }
     
 }

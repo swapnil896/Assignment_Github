@@ -6,5 +6,6 @@ target 'GithubAPIAssignment' do
 
   pod 'SDWebImage'
   pod 'SVProgressHUD'
+  pod 'Toast-Swift'
 
 end

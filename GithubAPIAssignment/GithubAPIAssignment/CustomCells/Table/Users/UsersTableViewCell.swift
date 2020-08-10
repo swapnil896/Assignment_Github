@@ -69,7 +69,7 @@ private extension UsersTableViewCell {
     func loadSearchData() {
         if let user = searchedUser {
             userNameLabel.text = user.login
-            
+            userScoreLabel.text = "Score " + "\(user.score)"
             let imageURL = URL(string: user.avatarURL)
             userImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "userPlaceholder"), options: .refreshCached, completed: nil)
         }

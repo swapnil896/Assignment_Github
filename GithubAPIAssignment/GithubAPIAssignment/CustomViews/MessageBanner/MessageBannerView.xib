@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageBannerView" customModule="GithubAPIAssignment" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="iN0-l3-epB" id="vwE-d8-Wh9"/>
+                <outlet property="contentView" destination="uRk-77-xMC" id="uq3-am-DaU"/>
+                <outlet property="detailLabel" destination="BL8-XU-i2U" id="TcC-Qw-OLS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRk-77-xMC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL8-XU-i2U">
+                            <rect key="frame" x="16" y="24" width="343" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="BL8-XU-i2U" secondAttribute="trailing" constant="16" id="CMO-vl-Cnb"/>
+                        <constraint firstItem="BL8-XU-i2U" firstAttribute="top" secondItem="uRk-77-xMC" secondAttribute="top" constant="24" id="H8u-pi-zsU"/>
+                        <constraint firstItem="BL8-XU-i2U" firstAttribute="leading" secondItem="uRk-77-xMC" secondAttribute="leading" constant="16" id="gcb-b1-12a"/>
+                        <constraint firstAttribute="bottom" secondItem="BL8-XU-i2U" secondAttribute="bottom" constant="16" id="geZ-kh-O5j"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uRk-77-xMC" secondAttribute="bottom" id="Img-fy-AbB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uRk-77-xMC" secondAttribute="trailing" id="Jag-Fu-9Rk"/>
+                <constraint firstItem="uRk-77-xMC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="odC-NM-Fpq"/>
+                <constraint firstItem="uRk-77-xMC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wzy-DV-KPT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="02m-Yu-3LB" appends="YES" id="duY-Rn-DBj"/>
+                <outletCollection property="gestureRecognizers" destination="Xtx-eB-WEC" appends="YES" id="Vwj-40-wHw"/>
+            </connections>
+            <point key="canvasLocation" x="140" y="136.73163418290855"/>
+        </view>
+        <tapGestureRecognizer id="02m-Yu-3LB"/>
+        <swipeGestureRecognizer direction="right" id="Xtx-eB-WEC"/>
+    </objects>
+</document>

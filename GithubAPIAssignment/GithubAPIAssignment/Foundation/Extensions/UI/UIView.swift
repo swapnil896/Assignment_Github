@@ -12,7 +12,7 @@ import SVProgressHUD
 extension UIView {
     
     func showHUD(_ message: String? = .loading) {
-        SVProgressHUD.setDefaultMaskType(.black)
+        //SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show(withStatus: message)
     }
     

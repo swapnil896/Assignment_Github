@@ -22,6 +22,11 @@ struct AppConstants {
     
     struct Delay {
         static let pointThree = 0.3
+        static let three = 3.0
+    }
+    
+    struct Height {
+        static let hundred = CGFloat(100)
     }
     
 }

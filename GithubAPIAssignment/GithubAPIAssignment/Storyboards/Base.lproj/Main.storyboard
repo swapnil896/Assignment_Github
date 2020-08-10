@@ -204,6 +204,10 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-gw-qLT">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -212,6 +216,7 @@
                             <constraint firstItem="Shw-in-tZu" firstAttribute="top" secondItem="Fkk-Kz-MkJ" secondAttribute="bottom" constant="5" id="19q-gu-c5h"/>
                             <constraint firstItem="Shw-in-tZu" firstAttribute="trailing" secondItem="5Cf-p5-2sp" secondAttribute="trailing" id="3At-sM-we5"/>
                             <constraint firstItem="5Cf-p5-2sp" firstAttribute="bottom" secondItem="pa9-Ge-uW9" secondAttribute="bottom" id="6p3-Wg-AWg"/>
+                            <constraint firstItem="QHa-gw-qLT" firstAttribute="centerX" secondItem="Wlz-e2-cDh" secondAttribute="centerX" id="BeV-gY-F4x"/>
                             <constraint firstItem="sHO-Zf-aPY" firstAttribute="top" secondItem="5Cf-p5-2sp" secondAttribute="top" id="UkD-5S-LGt"/>
                             <constraint firstAttribute="bottom" secondItem="Shw-in-tZu" secondAttribute="bottom" id="Vvo-1z-46G"/>
                             <constraint firstItem="5Cf-p5-2sp" firstAttribute="trailing" secondItem="pa9-Ge-uW9" secondAttribute="trailing" id="bkZ-IJ-UZd"/>
@@ -219,6 +224,7 @@
                             <constraint firstItem="sHO-Zf-aPY" firstAttribute="trailing" secondItem="5Cf-p5-2sp" secondAttribute="trailing" id="kja-1p-MjU"/>
                             <constraint firstItem="sHO-Zf-aPY" firstAttribute="leading" secondItem="5Cf-p5-2sp" secondAttribute="leading" id="q6r-a1-CEc"/>
                             <constraint firstItem="Sxs-4X-pKC" firstAttribute="leading" secondItem="5Cf-p5-2sp" secondAttribute="leading" id="qeB-FQ-ewh"/>
+                            <constraint firstItem="QHa-gw-qLT" firstAttribute="centerY" secondItem="Wlz-e2-cDh" secondAttribute="centerY" id="sB3-QG-VDO"/>
                             <constraint firstItem="Fkk-Kz-MkJ" firstAttribute="leading" secondItem="5Cf-p5-2sp" secondAttribute="leading" constant="16" id="sta-be-4MW"/>
                             <constraint firstItem="5Cf-p5-2sp" firstAttribute="trailing" secondItem="Fkk-Kz-MkJ" secondAttribute="trailing" constant="16" id="t30-76-BZ8"/>
                             <constraint firstItem="Shw-in-tZu" firstAttribute="leading" secondItem="5Cf-p5-2sp" secondAttribute="leading" id="voU-eY-Izx"/>
@@ -239,6 +245,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loader" destination="QHa-gw-qLT" id="5nN-B2-S23"/>
                         <outlet property="paginationLoader" destination="anE-rW-tk0" id="7Og-Fm-Dr4"/>
                         <outlet property="paginationView" destination="Ty1-ud-7Eb" id="aLl-JB-nK2"/>
                         <outlet property="searchBarView" destination="sHO-Zf-aPY" id="ohq-ce-k1V"/>

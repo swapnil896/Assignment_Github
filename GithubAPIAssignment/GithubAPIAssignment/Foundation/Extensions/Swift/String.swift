@@ -20,6 +20,7 @@ extension String {
     
     //Others
     static let loading = "Loading"
+    static let youAreOffline = "You are offline!"
     
 }
 
