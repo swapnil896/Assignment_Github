@@ -17,6 +17,7 @@ class UserViewModel {
     //MARK:- Initialization
     
     private init() { }
+    private var networking = Networking()
     
 }
 
@@ -24,8 +25,24 @@ class UserViewModel {
 
 extension UserViewModel {
     
-    func getGithubUsers() {
-        
+    func getGithubUsers(onSuccess success: @escaping (Users) -> Void, onFailure failure: @escaping (_ error: Error) -> Void) {
+        networking.performNetworkTask(endPoint: UsersAPI.users, type: [User].self) { (response, error) in
+            if let error = error {
+                failure(error)
+            } else if let resp = response {
+                success(resp)
+            }
+        }
+    }
+    
+    func searchUsers(_ searchParam: String , onSuccess success: @escaping (SearchedUsers) -> Void, onFailure failure: @escaping (_ error: Error) -> Void) {
+        networking.performNetworkTask(endPoint: UsersAPI.searchUser(searchParam), type: SearchedUsers.self) { (response, error) in
+            if let error = error {
+                failure(error)
+            } else if let resp = response {
+                success(resp)
+            }
+        }
     }
     
 }

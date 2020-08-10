@@ -1,16 +1,29 @@
 //
-//  UsersAPI.swift
+//  SearchedUsers.swift
 //  GithubAPIAssignment
 //
-//  Created by Swapnil  Magar on 06/08/20.
+//  Created by Swapnil  Magar on 09/08/20.
 //  Copyright © 2020 Swapnil Magar. All rights reserved.
 //
 
 import Foundation
 
-// MARK: - User
+// MARK: - SearchedUsers
 
-struct User: Codable {
+struct SearchedUsers: Codable {
+    let totalCount: Int
+    let incompleteResults: Bool
+    let items: [SearchedUser]
+
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+        case incompleteResults = "incomplete_results"
+        case items
+    }
+}
+
+// MARK: - Item
+struct SearchedUser: Codable {
     let login: String
     let id: Int
     let nodeID: String
@@ -21,8 +34,9 @@ struct User: Codable {
     let subscriptionsURL, organizationsURL, reposURL: String
     let eventsURL: String
     let receivedEventsURL: String
-    let type: TypeEnum
+    let type: String
     let siteAdmin: Bool
+    let score: Int
 
     enum CodingKeys: String, CodingKey {
         case login, id
@@ -42,12 +56,6 @@ struct User: Codable {
         case receivedEventsURL = "received_events_url"
         case type
         case siteAdmin = "site_admin"
+        case score
     }
 }
-
-enum TypeEnum: String, Codable {
-    case organization = "Organization"
-    case user = "User"
-}
-
-typealias Users = [User]

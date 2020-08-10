@@ -13,6 +13,15 @@ struct AppConstants {
     struct FontSize {
         static let twelve = CGFloat(12.0)
         static let fourteen = CGFloat(14.0)
+        static let seventeen = CGFloat(17.0)
+    }
+    
+    struct CornerRadius {
+        static let ten = CGFloat(10.0)
+    }
+    
+    struct Delay {
+        static let pointThree = 0.3
     }
     
 }

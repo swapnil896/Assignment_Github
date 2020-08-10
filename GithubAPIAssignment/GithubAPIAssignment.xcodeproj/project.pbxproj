@@ -35,6 +35,14 @@
 		55A7B72924DDE23000B30D8D /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B72824DDE23000B30D8D /* UIFont.swift */; };
 		55A7B72B24DDE62600B30D8D /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B72A24DDE62600B30D8D /* RoundedImageView.swift */; };
 		55A7B72E24DDEC3300B30D8D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B72D24DDEC3300B30D8D /* UserViewModel.swift */; };
+		55A7B73124DF2E4500B30D8D /* SearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A7B73024DF2E4500B30D8D /* SearchBarView.xib */; };
+		55A7B73324DF2E6200B30D8D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B73224DF2E6200B30D8D /* SearchBarView.swift */; };
+		55A7B73724DF30B300B30D8D /* TopSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B73624DF30B300B30D8D /* TopSearchBar.swift */; };
+		55A7B73924DF324100B30D8D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B73824DF324100B30D8D /* UIView.swift */; };
+		55A7B73B24DF332200B30D8D /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B73A24DF332200B30D8D /* UIStackView.swift */; };
+		55A7B73D24DF33B500B30D8D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B73C24DF33B500B30D8D /* SearchViewController.swift */; };
+		55A7B73F24DF3D7900B30D8D /* SearchedUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B73E24DF3D7900B30D8D /* SearchedUsers.swift */; };
+		55A7B74124DF431E00B30D8D /* NetworkLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A7B74024DF431E00B30D8D /* NetworkLog.swift */; };
 		AEC88E97C6672452295EB724 /* Pods_GithubAPIAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E323A6BAA051540F9967C395 /* Pods_GithubAPIAssignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +79,14 @@
 		55A7B72824DDE23000B30D8D /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		55A7B72A24DDE62600B30D8D /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		55A7B72D24DDEC3300B30D8D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		55A7B73024DF2E4500B30D8D /* SearchBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarView.xib; sourceTree = "<group>"; };
+		55A7B73224DF2E6200B30D8D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		55A7B73624DF30B300B30D8D /* TopSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSearchBar.swift; sourceTree = "<group>"; };
+		55A7B73824DF324100B30D8D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		55A7B73A24DF332200B30D8D /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		55A7B73C24DF33B500B30D8D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		55A7B73E24DF3D7900B30D8D /* SearchedUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedUsers.swift; sourceTree = "<group>"; };
+		55A7B74024DF431E00B30D8D /* NetworkLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLog.swift; sourceTree = "<group>"; };
 		E323A6BAA051540F9967C395 /* Pods_GithubAPIAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubAPIAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,8 +131,8 @@
 				55A1720224DBEE6C00B04DC8 /* Foundation */,
 				55A7B70724DBF72600B30D8D /* Managers */,
 				55A7B71024DC0F5C00B30D8D /* Models */,
-				55A7B70824DC096100B30D8D /* Utils.swift */,
 				55A7B71624DC101000B30D8D /* Global */,
+				55A7B73524DF2E7F00B30D8D /* CustomViews */,
 				55A7B72524DDDD7300B30D8D /* CustomCells */,
 				55A7B72C24DDE62B00B30D8D /* CustomLayouts */,
 				55A7B72F24DDEC3A00B30D8D /* ViewModels */,
@@ -163,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				55A171FB24DBEDFE00B04DC8 /* HomeViewController.swift */,
+				55A7B73C24DF33B500B30D8D /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,6 +199,8 @@
 				55A171FE24DBEE3B00B04DC8 /* UIStoryboard.swift */,
 				55A7B71B24DDC41200B30D8D /* UIColor.swift */,
 				55A7B72824DDE23000B30D8D /* UIFont.swift */,
+				55A7B73824DF324100B30D8D /* UIView.swift */,
+				55A7B73A24DF332200B30D8D /* UIStackView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -229,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				55A7B70E24DC0EEE00B30D8D /* Users.swift */,
+				55A7B73E24DF3D7900B30D8D /* SearchedUsers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +267,8 @@
 			children = (
 				55A7B71424DC100C00B30D8D /* APIConstant.swift */,
 				55A7B72624DDE18300B30D8D /* AppConstants.swift */,
+				55A7B70824DC096100B30D8D /* Utils.swift */,
+				55A7B74024DF431E00B30D8D /* NetworkLog.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -280,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				55A7B72A24DDE62600B30D8D /* RoundedImageView.swift */,
+				55A7B73624DF30B300B30D8D /* TopSearchBar.swift */,
 			);
 			path = CustomLayouts;
 			sourceTree = "<group>";
@@ -290,6 +313,23 @@
 				55A7B72D24DDEC3300B30D8D /* UserViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		55A7B73424DF2E7100B30D8D /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				55A7B73224DF2E6200B30D8D /* SearchBarView.swift */,
+				55A7B73024DF2E4500B30D8D /* SearchBarView.xib */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		55A7B73524DF2E7F00B30D8D /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				55A7B73424DF2E7100B30D8D /* SearchBar */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		5F296F2F71856307D89F2D71 /* Pods */ = {
@@ -369,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A7B73124DF2E4500B30D8D /* SearchBarView.xib in Resources */,
 				55A7B6FF24DBF15D00B30D8D /* BackendConfiguration.plist in Resources */,
 				550BA3BE24DBE67B00C0E93E /* LaunchScreen.storyboard in Resources */,
 				550BA3BB24DBE67B00C0E93E /* Assets.xcassets in Resources */,
@@ -426,14 +467,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A7B73924DF324100B30D8D /* UIView.swift in Sources */,
 				55A7B70324DBF45A00B30D8D /* ConfigReader.swift in Sources */,
 				55A7B70F24DC0EEE00B30D8D /* Users.swift in Sources */,
 				55A7B71224DC0F8100B30D8D /* UsersAPI.swift in Sources */,
+				55A7B73F24DF3D7900B30D8D /* SearchedUsers.swift in Sources */,
 				55A7B72124DDDD4C00B30D8D /* UsersTableViewCell.swift in Sources */,
+				55A7B73324DF2E6200B30D8D /* SearchBarView.swift in Sources */,
 				55A7B71A24DC118300B30D8D /* Networking.swift in Sources */,
 				550BA3B624DBE67700C0E93E /* BaseViewController.swift in Sources */,
 				55A7B71824DC116400B30D8D /* Response.swift in Sources */,
 				55A7B71C24DDC41200B30D8D /* UIColor.swift in Sources */,
+				55A7B73B24DF332200B30D8D /* UIStackView.swift in Sources */,
 				55A7B72B24DDE62600B30D8D /* RoundedImageView.swift in Sources */,
 				55A7B70924DC096100B30D8D /* Utils.swift in Sources */,
 				55A7B72E24DDEC3300B30D8D /* UserViewModel.swift in Sources */,
@@ -443,10 +488,13 @@
 				550BA3B224DBE67700C0E93E /* AppDelegate.swift in Sources */,
 				55A7B71E24DDC4F800B30D8D /* String.swift in Sources */,
 				55A1720524DBEF4800B04DC8 /* NSObject.swift in Sources */,
+				55A7B74124DF431E00B30D8D /* NetworkLog.swift in Sources */,
 				55A171FC24DBEDFE00B04DC8 /* HomeViewController.swift in Sources */,
 				55A7B70D24DC0AA100B30D8D /* Endpoint.swift in Sources */,
+				55A7B73D24DF33B500B30D8D /* SearchViewController.swift in Sources */,
 				55A7B72924DDE23000B30D8D /* UIFont.swift in Sources */,
 				55A7B71524DC100C00B30D8D /* APIConstant.swift in Sources */,
+				55A7B73724DF30B300B30D8D /* TopSearchBar.swift in Sources */,
 				55A7B70524DBF51D00B30D8D /* ConfigConstant.swift in Sources */,
 				55A7B72724DDE18300B30D8D /* AppConstants.swift in Sources */,
 			);

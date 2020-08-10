@@ -9,7 +9,8 @@
 import Foundation
 
 enum UsersAPI {
-    case users([String: Any])
+    case users
+    case searchUser(String)
 }
 
 extension UsersAPI: Endpoint {
@@ -22,33 +23,35 @@ extension UsersAPI: Endpoint {
         switch self {
         case .users:
             return APIConstant.Endpoint.users
+        case .searchUser(let searchParam):
+            return APIConstant.Endpoint.searchUsers + searchParam
         }
     }
     
     var method: String {
         switch self {
-        case .users:
+        case .users, .searchUser:
             return BackendConfiguration.httpMethod(.get)
         }
     }
     
     var queryType: QueryType {
         switch self {
-        case .users:
-            return .queryString
+        case .users, .searchUser:
+            return .httpBody
         }
     }
     
     var parameters: [String : Any]? {
         switch self {
-        case .users(let params):
-            return params
+        case .users, .searchUser:
+            return nil
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .users:
+        case .users, .searchUser:
             return nil
         }
     }

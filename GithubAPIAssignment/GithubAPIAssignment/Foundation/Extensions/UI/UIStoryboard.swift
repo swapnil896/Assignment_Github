@@ -32,6 +32,10 @@ extension Storyboard {
             return (mainStoryboard.instantiateViewController(withIdentifier: HomeViewController.className) as? HomeViewController)!
         }
         
+        func search() -> SearchViewController {
+            return (mainStoryboard.instantiateViewController(withIdentifier: SearchViewController.className) as? SearchViewController)!
+        }
+        
     }
     
 }

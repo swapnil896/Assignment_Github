@@ -16,6 +16,10 @@ extension String {
     //Button Titles
     static let viewDetails = "View Details"
     static let sortBy = "Sort by"
+    static let cancel = "Cancel"
+    
+    //Others
+    static let loading = "Loading"
     
 }
 

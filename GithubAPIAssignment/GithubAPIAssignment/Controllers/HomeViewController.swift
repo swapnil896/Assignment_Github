@@ -18,6 +18,10 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var paginationView: UIView!
     @IBOutlet weak var paginationLoader: UIActivityIndicatorView!
     
+    //MARK:- Private Properties
+    
+    private var usersList = [User]()
+    
     //MARK:- VC Life Cycle
 
     override func viewDidLoad() {
@@ -49,7 +53,6 @@ private extension HomeViewController {
     func applyStyle() {
         showingLabel.font = .system(AppConstants.FontSize.twelve)
         showingLabel.textColor = .black136
-        showingLabel.text = "result(s)".precedingZeroShowing(10)
         
         sortByButton.setTitle(.sortBy, for: .normal)
         sortByButton.titleLabel?.font = .system(AppConstants.FontSize.fourteen)
@@ -71,6 +74,22 @@ private extension HomeViewController {
         }
     }
     
+    func currentUser(_ indexPath: IndexPath) -> User? {
+        if indexPath.row < usersList.count {
+            return usersList[indexPath.row]
+        }
+        return nil
+    }
+    
+    func navigateSearch() {
+        let search = Storyboard.controller.search()
+        let navigation = UINavigationController(rootViewController: search)
+        navigation.modalPresentationStyle = .fullScreen
+        present(navigation, animated: false) {
+            search.showSearchBarView()
+        }
+    }
+    
 }
 
 //MARK:- IBActions
@@ -78,7 +97,7 @@ private extension HomeViewController {
 extension HomeViewController {
     
     @IBAction func searchBarButtonTapped(_ sender: UIBarButtonItem) {
-        
+        navigateSearch()
     }
     
 }
@@ -88,8 +107,25 @@ extension HomeViewController {
 extension HomeViewController {
     
     func fetchGithubUsers() {
+        UserViewModel.shared.getGithubUsers(onSuccess: { [weak self] (users) in
+            DispatchQueue.main.async {
+                self?.handleUsersResponse(users)
+            }
+        }) { (error) in
+            DispatchQueue.main.async {
+                
+            }
+            print(error.localizedDescription)
+        }
         
-        
+    }
+    
+    func handleUsersResponse(_ users: [User]?) {
+        if let users = users {
+            usersList = users
+            showingLabel.text = "result(s)".precedingZeroShowing(usersList.count)
+        }
+        tableView.reloadData()
     }
     
 }
@@ -99,12 +135,14 @@ extension HomeViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return usersList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UsersTableViewCell.className, for: indexPath) as! UsersTableViewCell
-        
+        if let user = currentUser(indexPath) {
+            cell.user = user
+        }
         return cell
     }
     

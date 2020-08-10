@@ -30,6 +30,10 @@ extension UIColor {
         return color(withRed: 136, green: 136, blue: 136)
     }
     
+    class var white80: UIColor {
+        return color(withRed: 255, green: 255, blue: 255, alpha: 0.8)
+    }
+    
 }
 
 //MARK:- Private

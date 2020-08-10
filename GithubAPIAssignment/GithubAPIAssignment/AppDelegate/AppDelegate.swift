@@ -12,9 +12,27 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        setupModules()
         return true
     }
 
 }
 
+//MARK:- Private
+
+private extension AppDelegate {
+    
+    func setupModules() {
+        customizeStatusBar()
+        configureBackend()
+    }
+    
+    func configureBackend() {
+        BackendConfiguration.backendPointing = .development
+    }
+    
+    func customizeStatusBar() {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+}

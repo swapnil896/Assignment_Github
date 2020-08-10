@@ -32,7 +32,7 @@ class BackendConfiguration {
     //MARK:- Initialization
     
     private init() {
-        
+        readConfigurationPlist()
     }
     
 }
@@ -44,7 +44,7 @@ extension BackendConfiguration {
     static var backendPointing: BackendPointing = .development
     
     static var serviceRoot: URL {
-        let serviceRoot = configuration.configurationDict.value(forKeyPath: ConfigKey.host) as! String
+        let serviceRoot = configuration.configurationDict.value(forKey: ConfigKey.host) as! String
         return URL(string: serviceRoot)!
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UsersTableViewCell: UITableViewCell {
     
@@ -17,6 +18,20 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userScoreLabel: UILabel!
     @IBOutlet weak var viewDetailsButton: UIButton!
+    
+    //MARK:- Public Properties
+    
+    var user: User? {
+        didSet {
+            loadData()
+        }
+    }
+    
+    var searchedUser: SearchedUser? {
+        didSet {
+            loadSearchData()
+        }
+    }
     
     //MARK:- Nib Initialization
     
@@ -40,6 +55,24 @@ private extension UsersTableViewCell {
         userScoreLabel.font = .system(AppConstants.FontSize.fourteen)
         viewDetailsButton.titleLabel?.font = .systemMedium(AppConstants.FontSize.twelve)
         viewDetailsButton.setTitle(.viewDetails, for: .normal)
+    }
+    
+    func loadData() {
+        if let user = user {
+            userNameLabel.text = user.login
+            
+            let imageURL = URL(string: user.avatarURL)
+            userImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "userPlaceholder"), options: .refreshCached, completed: nil)
+        }
+    }
+    
+    func loadSearchData() {
+        if let user = searchedUser {
+            userNameLabel.text = user.login
+            
+            let imageURL = URL(string: user.avatarURL)
+            userImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "userPlaceholder"), options: .refreshCached, completed: nil)
+        }
     }
     
 }

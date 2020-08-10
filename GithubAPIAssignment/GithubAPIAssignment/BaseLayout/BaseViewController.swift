@@ -43,7 +43,7 @@ private extension BaseViewController {
     
     func customiseNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .navigationBar
-        navigationController?.navigationBar.barTintColor = .navigationBar
+        navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true

@@ -11,7 +11,8 @@ import Foundation
 enum APIConstant {
     
     enum Endpoint {
-        static let users = "users"
+        static let users = "users?since=1"
+        static let searchUsers = "search/users?q="
     }
     
 }
