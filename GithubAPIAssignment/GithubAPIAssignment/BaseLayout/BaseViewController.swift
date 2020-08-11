@@ -43,10 +43,11 @@ private extension BaseViewController {
     
     func customiseNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .navigationBar
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.barTintColor = .navigationBar
         navigationController?.navigationBar.isTranslucent = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     func hideNavigationBar() {

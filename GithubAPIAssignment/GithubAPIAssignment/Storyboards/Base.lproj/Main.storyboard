@@ -91,7 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="NtF-Fn-lXx">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="4eZ-NS-I0k">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="4eZ-NS-I0k">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="search" id="tZB-2a-h2u">
@@ -280,6 +280,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hamburger" width="24" height="24"/>
         <image name="search" width="18.5" height="18.5"/>
     </resources>
 </document>
