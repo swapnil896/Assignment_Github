@@ -17,6 +17,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var showingLabel: UILabel!
     @IBOutlet weak var paginationView: UIView!
     @IBOutlet weak var paginationLoader: UIActivityIndicatorView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     //MARK:- Private Properties
     
@@ -49,6 +50,7 @@ private extension HomeViewController {
         applyStyle()
         registerCellNib()
         hidePaginationLoader(true)
+        hideViews(true)
     }
     
     func applyStyle() {
@@ -63,6 +65,21 @@ private extension HomeViewController {
     func registerCellNib() {
         let nib = UINib(nibName: UsersTableViewCell.className, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: UsersTableViewCell.className)
+    }
+    
+    func hideViews(_ shouldHide: Bool) {
+        sortByButton.isHidden = shouldHide
+        showingLabel.isHidden = shouldHide
+        tableView.isHidden = shouldHide
+    }
+    
+    func showListLoader() {
+        loader.isHidden = false
+        loader.startAnimating()
+    }
+    
+    func hideListLoader() {
+        loader.stopAnimating()
     }
     
     func hidePaginationLoader(_ shouldHide: Bool) {
@@ -117,9 +134,12 @@ extension HomeViewController {
     
     func fetchGithubUsers() {
         if Reachability.isConnectedToNetwork() {
+            showListLoader()
             UserViewModel.shared.getGithubUsers(onSuccess: { [weak self] (users) in
+                self?.hideListLoader()
                 self?.handleUsersResponse(users)
-            }) { (error) in
+            }) { [weak self] (error) in
+                self?.hideListLoader()
                 ToastPopupManager.shared.show(message: error.localizedDescription)
             }
         } else {
@@ -129,6 +149,7 @@ extension HomeViewController {
     
     func handleUsersResponse(_ users: [User]?) {
         if let users = users {
+            hideViews(false)
             usersList = users
             showingLabel.text = "result(s)".precedingZeroShowing(usersList.count)
         }

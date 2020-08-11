@@ -70,13 +70,19 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jXL-SI-IHR">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kQ2-Nm-eEG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0TQ-aj-q3k"/>
                             <constraint firstItem="zue-hq-Fk9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Euj-Id-ZOw"/>
                             <constraint firstItem="zue-hq-Fk9" firstAttribute="top" secondItem="iea-CK-baM" secondAttribute="bottom" id="Kaa-hn-vpd"/>
+                            <constraint firstItem="jXL-SI-IHR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LH0-rD-jBy"/>
                             <constraint firstAttribute="bottom" secondItem="sXs-FY-Bgl" secondAttribute="bottom" id="RuJ-nH-wJB"/>
+                            <constraint firstItem="jXL-SI-IHR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SuH-gB-wtd"/>
                             <constraint firstItem="sXs-FY-Bgl" firstAttribute="top" secondItem="zue-hq-Fk9" secondAttribute="bottom" constant="5" id="VMb-AQ-TzT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kQ2-Nm-eEG" secondAttribute="bottom" id="VVK-4T-bFB"/>
                             <constraint firstItem="sXs-FY-Bgl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZID-ps-coW"/>
@@ -102,6 +108,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loader" destination="jXL-SI-IHR" id="ox4-9L-AyX"/>
                         <outlet property="paginationLoader" destination="8JV-Xo-Gyo" id="K46-M5-iZY"/>
                         <outlet property="paginationView" destination="5wP-qv-3I5" id="D2Z-gC-fXY"/>
                         <outlet property="showingLabel" destination="zue-hq-Fk9" id="I0g-zy-eYY"/>

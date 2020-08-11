@@ -60,7 +60,7 @@ private extension UsersTableViewCell {
     func loadData() {
         if let user = user {
             userNameLabel.text = user.login
-            
+            userScoreLabel.isHidden = true
             let imageURL = URL(string: user.avatarURL)
             userImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "userPlaceholder"), options: .refreshCached, completed: nil)
         }
